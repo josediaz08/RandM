@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<div class="container my-5" *ngIf="character">
+    <div class="row">
+        <div class="col-12">
+            <a routerLink="/home" class="btn btn-secondary mb-3">
+                <i class="fa fa-arrow-left"></i> Go Back
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">{{ character.name }}</h1>
+            <img [src]="character.image" alt="Character Image" class="d-block mx-auto mb-4">
+            <ul class="list-group">
+                <li class="list-group-item">Status: {{ character.status }}</li>
+                <li class="list-group-item">Species: {{ character.species }}</li>
+                <li class="list-group-item">Gender: {{ character.gender }}</li>
+                <li class="list-group-item">Origin: {{ character.origin.name }}</li>
+                <li class="list-group-item">Location: {{ character.location.name }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
