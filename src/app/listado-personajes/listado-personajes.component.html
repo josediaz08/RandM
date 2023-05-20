@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h1 class="text-center mb-4">Listado de Personajes</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="pagination d-flex justify-content-center">
+        <button class="pagination-button previous-button" (click)="goToPreviousPage()" [disabled]="isFirstPage()">Anterior</button>
+        <button class="pagination-button next-button" (click)="goToNextPage()" [disabled]="isLastPage()">Siguiente</button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-6">
+      <input type="search" (input)="onSearchInputChange($event)" class="form-control form-control-lg" placeholder="Buscar por características...">
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5" *ngIf="filteredPersonajes.length > 0">
+    <div class="col-3 d-flex" *ngFor="let personaje of filteredPersonajes.slice(0, 10)">
+      <div class="card mb-5">
+        <img [src]="personaje.image" class="card-img-top" alt="Character Image">
+        <div class="card-body">
+          <a [routerLink]="['/personaje', personaje.id]">{{ personaje.name }}</a>
+          <p class="card-text"><strong>Género:</strong> {{ personaje.gender }}</p>
+          <p class="card-text"><strong>Estado:</strong> {{ personaje.status }}</p>
+          <p class="card-text"><strong>Especie:</strong> {{ personaje.species }}</p>
+          <p class="card-text"><strong>Origen:</strong> {{ personaje.origin.name }}</p>
+          <p class="card-text"><strong>Ubicación:</strong> {{ personaje.location.name }}</p>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5" *ngIf="filteredPersonajes.length === 0">
+    <div class="col-12 text-center">
+      <p>No se encontraron personajes.</p>
+    </div>
+  </div>
+</div>
+
