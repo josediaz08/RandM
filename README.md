@@ -1,6 +1,7 @@
 # RickApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Proyecto desplegado en:
 http://d3owgutuz8sy47.cloudfront.net
 ## Development server
 
